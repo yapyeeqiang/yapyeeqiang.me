@@ -1,5 +1,5 @@
 <script setup lang="ts"></script>
 
 <template>
-    <router-view />
+    <h1>Blog</h1>
 </template>
