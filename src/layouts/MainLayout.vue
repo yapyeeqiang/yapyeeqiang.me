@@ -3,6 +3,8 @@ import { PencilIcon, VolumeUpIcon, VideoCameraIcon, BriefcaseIcon, UserGroupIcon
 import { markRaw, ref } from 'vue'
 import { GitHubIcon, InstagramIcon, LinkedInIcon, TwitterIcon } from '@/assets'
 import ThemeToggle from '../components/ThemeToggle.vue'
+import Slideover from '../components/Slideover.vue'
+import { useTheme } from '@/composables/useTheme'
 
 const navigationMenus = ref([
     {
@@ -54,6 +56,17 @@ const socialMenus = ref([
         icon: markRaw(LinkedInIcon),
     },
 ])
+
+// Slideover
+const open = ref(false)
+
+const toggleOpen = (value: boolean) => {
+    open.value = value
+}
+
+// Theme toggle
+
+const { theme, toggleTheme } = useTheme()
 </script>
 
 <template>
@@ -67,7 +80,26 @@ const socialMenus = ref([
             </div>
 
             <nav>
-                <MenuIcon class="md:hidden h-6 w-6 text-gray-400 hover:text-black transition-all cursor-pointer" />
+                <MenuIcon @click="toggleOpen(true)" class="md:hidden h-6 w-6 text-gray-400 hover:text-black transition-all cursor-pointer" />
+
+                <Slideover :open="open" @toggle-open="toggleOpen">
+                    <ul class="flex flex-col items-start space-y-8">
+                        <li v-for="(menu, index) in navigationMenus" :key="index">
+                            <router-link :to="menu.to" class="flex items-center space-x-2 group transition-all">
+                                <component :is="menu.icon" class="h-4 w-4 text-gray-600 stroke-1 group-hover:stroke-2 group-hover:text-black transition-all dark:text-gray-400 dark:stroke-2 dark:group-hover:text-white" />
+                                <span class="inline-flex text-sm font-light text-gray-600 group-hover:text-black transition-all dark:text-gray-400 dark:group-hover:text-white">{{ menu.name }}</span>
+                            </router-link>
+                        </li>
+                        <div class="flex space-x-4">
+                            <li v-for="menu in socialMenus" :key="menu.name">
+                                <a :href="menu.url" target="blank">
+                                    <component :is="menu.icon" />
+                                </a>
+                            </li>
+                        </div>
+                    </ul>
+                    <ThemeToggle :theme="theme" @toggle-theme="toggleTheme" />
+                </Slideover>
 
                 <ul class="hidden md:flex items-center space-x-8">
                     <li v-for="(menu, index) in navigationMenus" :key="index">
@@ -82,7 +114,7 @@ const socialMenus = ref([
                         </a>
                     </li>
 
-                    <ThemeToggle />
+                    <ThemeToggle :theme="theme" @toggle-theme="toggleTheme" />
                 </ul>
             </nav>
         </header>
