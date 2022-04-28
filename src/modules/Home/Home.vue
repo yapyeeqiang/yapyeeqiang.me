@@ -15,7 +15,7 @@ import Link from '@/components/Link.vue'
 
                         <div>
                             <p>Creator of <Link href="https://github.com/yapyeeqiang/whatsapp-sender">WhatsApp Sender</Link>, <Link href="https://github.com/yapyeeqiang/create-vue-app">Create Vue App</Link>, <Link href="https://github.com/yapyeeqiang/api-code-generator">API Code Generator</Link>, <Link href="https://learnpinia.netlify.app/">Learn Pinia Documentation</Link>.</p>
-                            <p>Software Developer at <Link href="https://epicstartups.co/">EpicStartups</Link>.</p>
+                            <p>Software Developer at <Link href="https://hackercollective.co/">The Hacker Collective</Link>.</p>
                             <p>Curriculum Lead (Frontend) at <Link href="https://sigmaschool.co/">Sigma School</Link></p>
                         </div>
 
