@@ -1,11 +1,15 @@
 <script setup lang="ts">
-import { useTheme } from '@/composables/useTheme'
+defineProps<{
+    theme: string | null
+}>()
 
-const { theme, toggleTheme } = useTheme()
+const emit = defineEmits<{
+    (e: 'toggleTheme'): void
+}>()
 </script>
 
 <template>
-    <svg width="50px" height="88px" viewBox="0 0 189 88" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" :class="{ dark: theme === 'dark' }" @click="toggleTheme">
+    <svg width="50px" height="88px" viewBox="0 0 189 88" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" :class="{ dark: theme === 'dark' }" @click="emit('toggleTheme')">
         <defs>
             <circle id="path-1" cx="25" cy="25" r="25"></circle>
         </defs>
