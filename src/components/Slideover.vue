@@ -19,7 +19,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="relative mt-6 flex-1 px-5 sm:px-10">
+                                <div class="relative mt-6 flex-1">
                                     <slot />
                                 </div>
                             </div>
