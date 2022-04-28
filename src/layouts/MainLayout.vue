@@ -12,16 +12,16 @@ const navigationMenus = ref([
         to: '/blogs',
         icon: markRaw(PencilIcon),
     },
-    // {
-    //     name: 'Talks',
-    //     to: '/talks',
-    //     icon: markRaw(VolumeUpIcon),
-    // },
-    // {
-    //     name: 'Streams',
-    //     to: '/streams',
-    //     icon: markRaw(VideoCameraIcon),
-    // },
+    {
+        name: 'Talks',
+        to: '/talks',
+        icon: markRaw(VolumeUpIcon),
+    },
+    {
+        name: 'Streams',
+        to: '/streams',
+        icon: markRaw(VideoCameraIcon),
+    },
     {
         name: 'Projects',
         to: '/projects',
