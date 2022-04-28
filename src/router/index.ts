@@ -31,6 +31,11 @@ const routes = [
         name: 'Community',
         component: () => import('@/modules/Community/Community.vue'),
     },
+    {
+        path: '/:pathMatch(.*)*',
+        name: 'NotFound',
+        component: () => import('@/modules/NotFound/NotFound.vue'),
+    },
 ]
 
 const router = createRouter({
