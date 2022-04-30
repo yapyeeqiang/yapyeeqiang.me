@@ -6,12 +6,12 @@ const gh = axios.create({
 })
 
 export default {
-    async queryRepos(username: string): Promise<RepoResult[]> {
-        const { data: repos } = await gh.get(`/users/${username}/repos`)
-
-        console.log(repos)
+    async queryRepos(username: string, pageNumber: number = 1): Promise<RepoResult[]> {
+        const { data: repos } = await gh.get(`/users/${username}/repos?per_page=9&page=${pageNumber}`)
 
         return repos.map((repo: any) => {
+            if (repo.private) return
+
             return {
                 id: repo.id,
                 url: repo.html_url,
@@ -22,7 +22,14 @@ export default {
                 watchers: repo.watchers_count,
                 createdAt: repo.created_at,
                 updatedAt: repo.updated_at,
+                projectURL: repo?.homepage,
             }
         })
+    },
+
+    async getReposCount(username: string) {
+        const { data } = await gh.get(`/users/${username}`)
+
+        return data.public_repos
     },
 }

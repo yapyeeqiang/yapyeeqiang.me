@@ -1,11 +1,12 @@
 interface RepoGeneral {
-    id: number
+    id: string
     url: string
     title: string
     description: string
     language: string
     forks: number
     watchers: number
+    projectURL?: string
 }
 
 export interface RepoResult extends RepoGeneral {
