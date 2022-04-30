@@ -11,7 +11,7 @@ export default {
 
             return data
         } catch (error) {
-            console.log(error)
+            return error
         }
     },
     async getPageContent(pageID: string) {
@@ -20,7 +20,17 @@ export default {
 
             return data
         } catch (error) {
-            console.log(error)
+            return error
+        }
+    },
+
+    async getPageAuthor(authorID: string) {
+        try {
+            const { data } = await notion.get(`/user/${authorID}`)
+
+            return data
+        } catch (error) {
+            return error
         }
     },
 }
