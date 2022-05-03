@@ -30,7 +30,7 @@ import Link from '@/components/Link.vue'
 
                     <div class="space-y-1">
                         <p>Find me on <Link href="https://github.com/yapyeeqiang">GitHub</Link>, <Link href="https://twitter.com/yapyeeqiang">Twitter</Link>, or <Link href="https://instagram.com/yapyeeqiang">Instagram</Link>.</p>
-                        <p>Mail me at <Link href="mailto:yapyeeqiang@gmail.com">yapyeeqiang@gmail.com</Link></p>
+                        <p>Mail me at <Link href="mailto:hi@yeeqiang.me">hi@yeeqiang.me</Link></p>
                         <p>Chat with the community at <Link href="https://discord.com/invite/nzdXz5zhx8">my Discord Server</Link>.</p>
                     </div>
                 </div>
